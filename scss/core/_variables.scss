@@ -1,0 +1,151 @@
+:root {
+  /* MaxWidth Of Page, Container-Fluid, Container, Gutter*/
+
+  --max-width-page: 2560px;
+  --max-width-container: calc(1198px + calc(var(--gap) * 2)); // 1200px tuỳ thuộc bản thiết kế */
+
+  --gap: 28px; // Tuỳ vào thiết kế
+  --grid-gap: 26px;
+
+  /* Colors Variable Demo*/
+  --blue: #0328ee;
+  --white: #fff;
+  --dark: #010725;
+  --blue-dark: #010d50;
+
+  // Fontsize - Lineheight - Letterspacing Desktop
+  --fs-h1: 6.6rem;
+  --lh-h1: 8rem;
+  --ls-h1: -0.1rem;
+
+  --fs-h2: 4.2rem;
+  --lh-h2: 5.5rem;
+
+  --fs-label: 1.8rem;
+  --lh-label: 2.6rem;
+  --ls-label: 0.09rem;
+
+  --fs-label-i: 1.8rem;
+  --lh-label-i: 2.6rem;
+  --ls-label-i: 0.09rem;
+
+  --fs-icon: 1.8rem;
+  --lh-icon: 2.599rem;
+  --ls-icon: 0.09rem;
+
+  --fs-btn: 1.6rem;
+  --lh-btn: 1.6rem;
+  --ls-btn: 0.16rem;
+
+  --fs-body1: 1.8rem;
+  --lh-body1: 3.2rem;
+
+  --fs-body2: 1.6rem;
+  --lh-body2: 2.6rem;
+
+  --fs-menu: 1.4rem;
+  --lh-menu: 1.6rem;
+  --ls-menu: 0.14rem;
+
+  --fs-tag: 1.4rem;
+  --lh-tag: 1.8rem;
+  --ls-tag: 0.07rem;
+
+  --fs-subs: 1.4rem;
+  --lh-subs: 1.6rem;
+  --ls-subs: 0.16rem;
+
+  --fs-nav: 2.6rem;
+  --lh-nav: 2.6rem;
+  --ls-nav: 0.14rem;
+
+  --fs-h3: 2.8rem;
+  --lh-h3: 2.999rem;
+  --ls-h3: 0.028rem;
+
+  --fs-news: 2.2rem;
+  --lh-news: 3.1rem;
+
+  --fs-author: 1.6rem;
+  --lh-author: 1.8rem;
+  --ls-author: 0.08rem;
+
+  --fs-copy: 1.6rem;
+  --lh-copy: 2.6rem;
+
+  // General Variable Demo
+  --height-header: 100px;
+  --height-button: 56px;
+  --pd-section: 120px;
+
+  // Timing Transition Variable Demo
+  --time: 0.4s;
+  --cubic: cubic-bezier(0.59, 0.29, 0.15, 0.93);
+
+  // Responsive
+  @include md {
+    --max-width-container: calc(1140px + calc(var(--gap) * 2));
+  }
+  @include sm {
+    --max-width-container: calc(960px + calc(var(--gap) * 2));
+  }
+  @include xs {
+    --max-width-container: calc(100% + calc(var(--gap) * 2));
+    --gap: 15px;
+    --height-header: 73px;
+
+    // Fontsize - Lineheight - Letterspacing Mobile
+    --fs-h1: 3.8rem;
+    --lh-h1: 4.6rem;
+    --ls-h1: -0.1rem;
+
+    --fs-h2: 2.8rem;
+    --lh-h2: 3.6rem;
+
+    --fs-label: 1.4rem;
+    --lh-label: 1.8rem;
+    --ls-label: 0.07rem;
+
+    --fs-label-i: 1.8rem;
+    --lh-label-i: 2.6rem;
+    --ls-label-i: 0.09rem;
+
+    --fs-btn: 1.6rem;
+    --lh-btn: 1.6rem;
+    --ls-btn: 0.16rem;
+
+    --fs-body1: 1.6rem;
+    --lh-body1: 2.6rem;
+
+    --fs-body2: 1.6rem;
+    --lh-body2: 2.6rem;
+
+    --fs-menu: 3.2rem;
+    --lh-menu: 100%;
+    --ls-menu: 0.14rem;
+
+    --fs-tag: 1.4rem;
+    --lh-tag: 1.8rem;
+    --ls-tag: 0.07rem;
+
+    --fs-subs: 1.6rem;
+    --lh-subs: 1.6rem;
+    --ls-subs: 0.16rem;
+
+    --fs-h3: 2.8rem;
+    --lh-h3: 2.5rem;
+    --ls-h3: initial;
+
+    --fs-news: 2.2rem;
+    --lh-news: 3.1rem;
+
+    --fs-author: 1.6rem;
+    --lh-author: 1.8rem;
+    --ls-author: 0.08rem;
+
+    --fs-copy: 1.4rem;
+  }
+  @include xxs {
+    --container-max-width: 100%;
+  }
+}

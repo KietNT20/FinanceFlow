@@ -1,0 +1,199 @@
+.tokenspage {
+  .main {
+    margin-top: var(--height-header);
+  }
+  .tokens {
+    padding: 60px 0px 120px;
+    .container {
+      .textbox {
+        text-align: center;
+        margin-bottom: 101px;
+        .heading {
+          margin-bottom: 16px;
+        }
+        .desc {
+          max-width: 568px;
+          margin: 0 auto;
+        }
+      }
+    }
+    &__wrap {
+      display: flex;
+      align-items: start;
+      &-name,
+      &-desc,
+      &-cap,
+      &-volume,
+      &-website {
+        &--item {
+          display: flex;
+          align-items: center;
+          height: 133px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      &-cap,
+      &-volume {
+        &--item {
+          span {
+            @include styleText(sbo, var(--fs-body2), var(--lh-body2), var(--white));
+          }
+        }
+      }
+
+      &-desc,
+      &-website {
+        &--item {
+          @include styleText(sr, var(--fs-body2), var(--lh-body2), var(--white));
+        }
+      }
+
+      &-name {
+        &--item {
+        }
+        &--img {
+          width: 46px;
+          height: 46px;
+          border-radius: 100%;
+          background-color: var(--white);
+          @include mid(true);
+        }
+        &--coin {
+          margin: 0 16px;
+          @include styleText(sbo, 1.8rem, 2rem, var(--white));
+        }
+        .tag-small {
+          @include styleText(sm, 1.2rem, 1.2rem, var(--white), uppercase);
+          @include textLS(0.06rem, 400);
+          height: 26px;
+          padding: 0 9px;
+          border-radius: 1000px;
+          background-color: var(--blue-dark);
+          @include mid(true);
+          flex-direction: column;
+        }
+      }
+
+      &-name,
+      &-desc {
+        width: 25%;
+      }
+      &-cap,
+      &-volume {
+        width: 20%;
+      }
+      &-website {
+        width: 10%;
+        &--item {
+          .btn {
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              height: 1px;
+              background-color: var(--white);
+              @include transform(scaleX(1));
+              @include transform-origin(left);
+              @include transition(transform var(--time));
+              transition-timing-function: var(--cubic);
+            }
+            &:hover {
+              &::before {
+                @include transform(scaleX(0));
+                @include transform-origin(right);
+              }
+            }
+          }
+        }
+      }
+      .name,
+      .desc,
+      .cap,
+      .volume,
+      .website {
+        height: 99px;
+        justify-content: start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        @include styleText(sbo, 1.6rem, 1.8rem, var(--white), uppercase);
+        @include textLS(0.1rem, 700);
+      }
+    }
+    /* RESPONSIVE */
+    @include maxW(1068px) {
+      &__wrap {
+        justify-content: space-between;
+        &-desc {
+          width: 20%;
+        }
+        &-website {
+          width: initial;
+        }
+      }
+    }
+    @include sm {
+      padding: 48px 0 80px;
+      .container {
+        .textbox {
+          margin-bottom: 48px;
+          text-align: left;
+          .desc {
+            margin: initial;
+          }
+        }
+      }
+      &__wrap {
+        flex-direction: column;
+        align-items: center;
+        &-name,
+        &-desc,
+        &-cap,
+        &-volume,
+        &-website {
+          width: 80%;
+          padding: 32px 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: start;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          gap: 16px;
+          &--item {
+            height: fit-content;
+            border-bottom: initial;
+            display: none;
+            &.--active {
+              display: flex;
+            }
+          }
+        }
+
+        .name,
+        .desc,
+        .cap,
+        .volume,
+        .website {
+          border-bottom: initial;
+          height: fit-content;
+        }
+      }
+    }
+
+    @include xxs {
+      &__wrap {
+        &-name,
+        &-desc,
+        &-cap,
+        &-volume,
+        &-website {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

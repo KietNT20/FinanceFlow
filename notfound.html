@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>CFD Circle</title>
+
+    <meta name="title" content="CFD Circle" />
+    <meta name="description" content="FinanceFlow" />
+    <meta name="keyword" content="FinanceFlow" />
+
+    <link rel="canonical" href="https://cfdcircle.vn" />
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Meta Tag Facebook -->
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta
+      property="og:description"
+      content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+    />
+    <meta property="og:url" content="https://cfdcircle.vn" />
+    <meta property="og:site_name" content="CFD Circle" />
+    <meta property="og:image" content="./assets/thumbnail/thumbnail.jpg" />
+
+    <!-- Meta Tag Twitter -->
+    <meta name="twitter:card" content="FinanceFlow" />
+    <meta name="twitter:site" content="CFD Circle" />
+    <meta name="twitter:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta
+      name="twitter:description"
+      content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+    />
+    <meta name="twitter:image" content="./assets/thumbnail/thumbnail.jpg" />
+
+    <style>
+      /* CSS Loading Here */
+      .loading {
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        position: fixed;
+        z-index: 999;
+        background: #010725;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .loading.--is-loaded {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .loading .loading__inner {
+        width: 140px;
+        height: 5px;
+        border-radius: 10px;
+        background: #0328ee;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loading .loading__inner .loading__inner-progress {
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        background: #ffffff;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .loading .loading__percent {
+        text-align: center;
+        color: #fff;
+        font-size: 17px;
+        margin-top: 15px;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      @media screen and (max-width: 400px) {
+        .loading .loading__inner {
+          width: 129px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="dest/style.min.css" />
+    <link rel="stylesheet" href="dest/fonts.css" />
+  </head>
+
+  <body class="notfoundpage --bg-darker">
+    <!-- LOADING -->
+    <div class="loading">
+      <div class="loading__inner">
+        <div class="loading__inner-progress"></div>
+      </div>
+      <span class="loading__percent">0%</span>
+    </div>
+    <!-- PROGRESS BAR -->
+    <div class="progressbar"></div>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <!-- HEADER LOGO -->
+        <div class="header__logo">
+          <a href="./" class="header__logo-thumb">
+            <picture>
+              <source media="(max-width: 992px)" srcset="assets/icon/logo-m.svg" />
+              <img srcset="assets/icon/logo.svg" alt="logo-finance-flow" />
+            </picture>
+          </a>
+        </div>
+        <!-- HEADER MENU -->
+        <nav class="header__menu">
+          <ul>
+            <li><a href="./" class="btn --active-menu">Home</a></li>
+            <li><a href="./about.html" class="btn">About</a></li>
+            <li><a href="./pricing.html" class="btn">Pricing</a></li>
+            <li><a href="./tokens.html" class="btn">Tokens</a></li>
+            <li><a href="./blog.html" class="btn">Blog</a></li>
+            <li><a href="./contactus.html" class="btn">contact us</a></li>
+          </ul>
+        </nav>
+        <!-- HEADER BUTTON -->
+        <div class="header__cta">
+          <a
+            href="https://cfdcircle.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="header__cta-btn --btn-down --btn-small"
+            >Download App</a
+          >
+          <div class="header__cta-btnmenu">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MENU MOBILE -->
+    <nav class="navmenu">
+      <ul class="navmenu__btn">
+        <li><a href="./" class="btn --active">Home</a></li>
+        <li><a href="./about.html" class="btn">About</a></li>
+        <li><a href="./pricing.html" class="btn">Pricing</a></li>
+        <li><a href="./tokens.html" class="btn">Tokens</a></li>
+        <li><a href="./blog.html" class="btn">Blog</a></li>
+        <li><a href="./contactus.html" class="btn">contact us</a></li>
+        <li><a href="https://cfdcircle.vn/" target="_blank" class="btnmain --btn-down">Download App</a></li>
+      </ul>
+      <div class="blur --blur"><img srcset="assets/img/blur-menu-m.png 2x" alt="" /></div>
+    </nav>
+
+    <!-- Main -->
+    <main class="main">
+      <!-- 404-->
+      <section class="notfound">
+        <div class="container">
+          <div class="notfound__wrap">
+            <h1 class="notfound__heading">404</h1>
+            <div class="textbox">
+              <h2 class="heading --h2">Page Not Found</h2>
+              <p class="desc">
+                The page you're looking for can't be found. Double-check the URL and try again. Or click the button below.
+              </p>
+            </div>
+            <div class="notfound__btn">
+              <a href="https://cfdcircle.vn" target="_blank" class="notfound__btn-btnmain --btn-down">Download App</a>
+              <a href="./pricing.html" class="notfound__btn-btnmain --btn-down --btn-gray">view pricing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="blur --blur">
+        <img srcset="assets/img/blur-products.png 2x" alt="" />
+      </div>
+    </main>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="dest/jsmain.min.js"></script>
+    <script type="text/javascript" src="dest/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+.header {
+  position: fixed;
+  font-weight: 500;
+  z-index: 400;
+  height: var(--height-header);
+  top: 0;
+  width: 100%;
+  @include transition(var(--time));
+  background-color: linear-gradient(var(--blue-dark), transparent);
+  &.--bg-dark {
+    background-color: var(--blue-dark);
+  }
+  &.--bg-dark-m {
+    background-color: var(--blue-dark);
+  }
+  .container {
+    @include styleText(sr, var(--fs-menu), var(--lh-menu), var(--white), uppercase);
+    @include textLS(var(--ls-menu), 500, break-word);
+    @include mid(true);
+    justify-content: space-between;
+    height: 100%;
+  }
+  &__logo {
+    @include mid(true);
+    margin-right: 32px;
+  }
+  &__menu {
+    display: flex;
+    align-items: center;
+    ul {
+      display: flex;
+      align-items: center;
+      margin-left: 18.5px;
+      li {
+        a {
+          padding: 15px 13.5px;
+          display: block;
+          @include mid(true);
+          @include transition(var(--time));
+          position: relative;
+          &::after {
+            display: block;
+            content: "";
+            width: calc(100% - 30px);
+            height: 1px;
+            background: var(--white);
+            position: absolute;
+            bottom: 12px;
+            @include transition(transform var(--time));
+            transition-timing-function: var(--cubic);
+            @include transform(scaleX(0));
+            @include transform-origin(right);
+          }
+          &:hover {
+            color: var(--white);
+            &::after {
+              @include transform(scaleX(1));
+              @include transform-origin(left);
+            }
+          }
+          &.--active-nav {
+            @include transition(var(--time));
+            color: var(--white);
+            &::before {
+              display: block;
+              content: "";
+              width: calc(100% - 30px);
+              height: 1px;
+              background: var(--white);
+              position: absolute;
+              bottom: 12px;
+            }
+          }
+        }
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      height: 50%;
+      width: 1px;
+      background: var(--blue-dark);
+    }
+  }
+  &__cta {
+    margin-left: auto;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    &-btnmenu {
+      display: none;
+      @include size(45px);
+      background-color: var(--blue);
+      position: relative;
+      cursor: pointer;
+      position: relative;
+      @include transition(var(--time));
+      z-index: 1;
+      span {
+        content: "";
+        @include mid(false);
+        width: 25px;
+        height: 2px;
+        display: inline-block;
+        background-color: var(--white);
+        @include transition(var(--time));
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 2px;
+          background-color: var(--white);
+          @include transition(var(--time));
+        }
+        &::before {
+          @include transform(translateY(9px));
+        }
+        &::after {
+          @include transform(translateY(-9px));
+        }
+      }
+      &.active-menu {
+        span {
+          @include transform(translateX(-50%));
+          background: transparent;
+          &::before {
+            @include transform(rotate(45deg) translate(0px, 0px));
+          }
+          &::after {
+            @include transform(rotate(-45deg) translate((0px, 0px)));
+          }
+        }
+      }
+    }
+  }
+  /* ------------------------------------------RESPONSIVE--------------------------------------------------------------- */
+  @include maxW(996.98px) {
+    &__menu {
+      ul {
+        li {
+          a {
+            display: none;
+          }
+        }
+      }
+    }
+    &__cta {
+      &-btn {
+        display: none;
+      }
+      &-btnmenu {
+        display: block;
+      }
+    }
+    @include landscape {
+      &__menu {
+        &::after {
+          display: none;
+        }
+        ul {
+          li {
+            a {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include xs {
+    height: var(--height-header);
+    &__menu {
+      &::after {
+        display: none;
+      }
+      ul {
+        li {
+          a {
+            display: none;
+          }
+        }
+      }
+    }
+    &__cta {
+      &-btn {
+        display: none;
+      }
+      &-btnmenu {
+        display: block;
+      }
+    }
+  }
+  @include xxs {
+    &__menu {
+      ul {
+        li {
+          a {
+            display: none;
+          }
+        }
+      }
+    }
+    &__cta {
+      &-btn {
+        display: none;
+      }
+      &-btnmenu {
+        display: block;
+      }
+    }
+  }
+}

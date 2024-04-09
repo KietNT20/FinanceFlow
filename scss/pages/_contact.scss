@@ -1,0 +1,305 @@
+.contactuspage {
+  .main {
+    position: relative;
+    overflow-x: hidden;
+    .blur {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include transform(translate(40%, -40%));
+      @include xs {
+        @include transform(translate(50%, -50%));
+      }
+      @include xxs {
+        top: 7%;
+        right: 35%;
+        width: 185%;
+      }
+    }
+  }
+  /* GET IN TOUCH */
+  .getintouch {
+    padding: 180px 0px 120px;
+    z-index: 2;
+    .container {
+      & > .textbox {
+        margin-bottom: 52px;
+      }
+    }
+    &__wrap {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: var(--grid-gap);
+      &-left {
+        grid-column: 1/9;
+        max-width: 753px;
+      }
+      &-right {
+        grid-column: 9/13;
+        .textbox {
+          margin-bottom: 36px;
+          .heading {
+            margin-bottom: 15px;
+          }
+        }
+        .content-wrap-list {
+          .content-wrap--item {
+            display: flex;
+            gap: 15px;
+          }
+          .content-wrap--item + .content-wrap--item {
+            margin-top: 24px;
+          }
+        }
+      }
+    }
+    &-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px 25px;
+      &-item {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 12px;
+          @include styleText(sbo, var(--fs-icon), var(--lh-icon), var(--white));
+          @include textLS(var(--ls-icon), 700);
+        }
+        input {
+          background-color: var(--blue-dark);
+          border-radius: 100px;
+          padding: 20.5px 25px;
+          &:focus::placeholder {
+            opacity: 0;
+          }
+        }
+        textarea {
+          resize: none;
+          &:focus::placeholder {
+            opacity: 0;
+          }
+        }
+        textarea,
+        input {
+          @include transition(var(--time));
+          border: 1px solid #010725;
+          height: 100%;
+
+          &:hover {
+            border: 1px solid var(--white);
+          }
+          &:focus {
+            border: 1px solid var(--blue);
+          }
+        }
+        input,
+        textarea,
+        textarea::placeholder,
+        input::placeholder {
+          @include styleText(sr, 1.8rem, 2.7rem, var(--white));
+        }
+      }
+      &--name,
+      &--company {
+        grid-column: 1/2;
+      }
+      &--email,
+      &--subject {
+        grid-column: 2/3;
+      }
+      &--message {
+        grid-column: 1/3;
+        textarea {
+          background-color: var(--blue-dark);
+          border-radius: 14px;
+          padding: 20.5px 25px;
+          height: 162px;
+        }
+      }
+      &--name,
+      &--email,
+      &--subject,
+      &--message {
+        position: relative;
+        .form-alert {
+          @include styleText(sr, var(--fs-copy), var(--lh-copy), #ee0303);
+          position: absolute;
+          top: 100%;
+          left: 0;
+          display: none;
+        }
+      }
+      .btnmain {
+        margin-top: 20px;
+      }
+    }
+    @include sm {
+      padding: 121px 0px 80px;
+      &__wrap {
+        grid-template-columns: 1fr;
+        gap: 48px 0px;
+        &-left {
+          max-width: initial;
+          grid-area: 1/1/2/13;
+        }
+        &-right {
+          grid-area: 2/1/3/13;
+          .textbox {
+            .desc {
+              max-width: 50%;
+            }
+          }
+        }
+      }
+    }
+    @include xs {
+      &__wrap {
+        &-right {
+          .textbox {
+            .desc {
+              max-width: 80%;
+            }
+          }
+        }
+      }
+    }
+    @include xxs {
+      .container {
+        & > .textbox {
+          margin-bottom: 40px;
+        }
+      }
+      &-form {
+        @include mid(true);
+        flex-direction: column;
+        gap: 24px;
+        &-item {
+          width: 100%;
+        }
+        .btnmain {
+          margin-top: 8px;
+          width: 100%;
+          @include mid(true);
+        }
+      }
+      &__wrap {
+        &-right {
+          .textbox {
+            .desc {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  /* FAQs */
+  .faqs {
+    padding-bottom: 120px;
+    .container {
+      overflow: hidden;
+      & > .textbox {
+        margin-bottom: 80px;
+        .heading {
+          text-align: center;
+        }
+      }
+    }
+    &__list {
+      max-width: 872px;
+      margin: 0 auto;
+    }
+    &__item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      .textbox {
+        padding: 32px 8px;
+        cursor: pointer;
+        @include mid(true);
+        justify-content: space-between;
+        .title {
+          @include styleText(sbo, 2.8rem, 2.999rem, var(--white));
+          @include textLS(0.028rem, 700);
+        }
+        .toggle {
+          cursor: pointer;
+          @include mid(true);
+          width: 27px;
+          height: 27px;
+          span {
+            display: inline-block;
+            width: 27px;
+            height: 2px;
+            background-color: var(--white);
+            position: relative;
+            @include transition(var(--time));
+            &::before {
+              content: "";
+              width: 2px;
+              height: 27px;
+              background-color: var(--white);
+              @include mid(false);
+              @include transition(var(--time));
+            }
+          }
+        }
+      }
+      .desc {
+        padding-left: 8px;
+        position: relative;
+        max-height: 0;
+        overflow: hidden;
+        @include transition(max-height var(--time));
+        .title {
+          @include styleText(sbo, 2.8rem, 2.999rem, var(--white));
+          @include textLS(0.028rem, 700);
+          margin-bottom: 16px;
+        }
+      }
+      &.--active {
+        padding-bottom: 8px;
+        .textbox {
+          .toggle {
+            span {
+              &::before {
+                @include transform(translate(-50%, -50%) rotate(90deg));
+              }
+            }
+          }
+        }
+      }
+    }
+    /* RESPONSIVE */
+    @include sm {
+      padding-bottom: 80px;
+    }
+    @include xs {
+      .container {
+        & > .textbox {
+          margin-bottom: 32px;
+        }
+      }
+      &__item {
+        .textbox {
+          padding: 24px 0;
+          flex-direction: row;
+          gap: 5px;
+
+          .title {
+            @include styleText(sbo, 1.8rem, 2.6rem, var(--white));
+          }
+        }
+        .desc {
+          padding-left: initial;
+          .title {
+            @include styleText(sbo, 1.8rem, 2.6rem, var(--white));
+          }
+          p {
+            font-size: 1.6rem;
+            line-height: 2.6rem;
+          }
+        }
+      }
+    }
+  }
+}

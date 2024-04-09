@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>CFD Circle</title>
+
+    <meta name="title" content="CFD Circle" />
+    <meta name="description" content="FinanceFlow" />
+    <meta name="keyword" content="FinanceFlow" />
+
+    <link rel="canonical" href="https://cfdcircle.vn" />
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Meta Tag Facebook -->
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta
+      property="og:description"
+      content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+    />
+    <meta property="og:url" content="https://cfdcircle.vn" />
+    <meta property="og:site_name" content="CFD Circle" />
+    <meta property="og:image" content="./assets/thumbnail/thumbnail.jpg" />
+
+    <!-- Meta Tag Twitter -->
+    <meta name="twitter:card" content="FinanceFlow" />
+    <meta name="twitter:site" content="CFD Circle" />
+    <meta name="twitter:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta
+      name="twitter:description"
+      content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+    />
+    <meta name="twitter:image" content="./assets/thumbnail/thumbnail.jpg" />
+
+    <style>
+      /* CSS Loading Here */
+      .loading {
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        position: fixed;
+        z-index: 999;
+        background: #010725;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .loading.--is-loaded {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .loading .loading__inner {
+        width: 140px;
+        height: 5px;
+        border-radius: 10px;
+        background: #0328ee;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loading .loading__inner .loading__inner-progress {
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        background: #ffffff;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .loading .loading__percent {
+        text-align: center;
+        color: #fff;
+        font-size: 17px;
+        margin-top: 15px;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      @media screen and (max-width: 400px) {
+        .loading .loading__inner {
+          width: 129px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="dest/style.min.css" />
+    <link rel="stylesheet" href="dest/fonts.css" />
+  </head>
+
+  <body class="homepage --bg-darker">
+    <!-- LOADING -->
+    <div class="loading">
+      <div class="loading__inner">
+        <div class="loading__inner-progress"></div>
+      </div>
+      <span class="loading__percent">0%</span>
+    </div>
+    <!-- PROGRESS BAR -->
+    <div class="progressbar"></div>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <!-- HEADER LOGO -->
+        <div class="header__logo">
+          <a href="./" class="header__logo-thumb">
+            <picture>
+              <source media="(max-width: 992px)" srcset="assets/icon/logo-m.svg" />
+              <img srcset="assets/icon/logo.svg" alt="logo-finance-flow" />
+            </picture>
+          </a>
+        </div>
+        <!-- HEADER MENU -->
+        <nav class="header__menu">
+          <ul>
+            <li><a href="./" class="btn --active-nav">Home</a></li>
+            <li><a href="./about.html" class="btn">About</a></li>
+            <li><a href="./pricing.html" class="btn">Pricing</a></li>
+            <li><a href="./tokens.html" class="btn">Tokens</a></li>
+            <li><a href="./blog.html" class="btn">Blog</a></li>
+            <li><a href="./contactus.html" class="btn">contact us</a></li>
+          </ul>
+        </nav>
+        <!-- HEADER BUTTON -->
+        <div class="header__cta">
+          <a
+            href="https://cfdcircle.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="header__cta-btn --btn-down --btn-small"
+            >Download App</a
+          >
+          <div class="header__cta-btnmenu">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MENU MOBILE -->
+    <nav class="navmenu">
+      <ul class="navmenu__btn">
+        <li><a href="./" class="btn --active">Home</a></li>
+        <li><a href="./about.html" class="btn">About</a></li>
+        <li><a href="./pricing.html" class="btn">Pricing</a></li>
+        <li><a href="./tokens.html" class="btn">Tokens</a></li>
+        <li><a href="./blog.html" class="btn">Blog</a></li>
+        <li><a href="./contactus.html" class="btn">contact us</a></li>
+        <li><a href="https://cfdcircle.vn/" target="_blank" class="btnmain --btn-down">Download App</a></li>
+      </ul>
+      <div class="blur --blur"><img srcset="assets/img/blur-menu-m.png 2x" alt="" /></div>
+    </nav>
+
+    <main class="main">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <div class="textbox">
+              <h1 class="heading --h1">Buy, trade, and hold 350+ cryptocurrencies</h1>
+              <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aenean dis
+                placerat.
+              </p>
+            </div>
+            <div class="hero__content-button">
+              <a href="https://cfdcircle.vn" target="_blank" class="hero-btn --btn-down">Download App</a>
+              <a href="./pricing.html" class="hero-btn --btn-down --btn-gray">view pricing</a>
+            </div>
+          </div>
+          <div class="hero__img">
+            <img srcset="assets/img/planet.png 2x" alt="img-planet" class="hero__img-planet" />
+            <img srcset="assets/img/blur-Earth.png 2x" alt="blur-Earth" class="hero__img-blur --blur" />
+          </div>
+        </div>
+        <div class="hero__blur --blur">
+          <img srcset="assets/img/blur-hero.png 2x" alt="blur" />
+        </div>
+      </section>
+      <!-- COMPANY -->
+      <section class="company">
+        <div class="container">
+          <p class="title">Finance flow has been featured on</p>
+          <div class="company__list">
+            <div class="company__list-icon">
+              <img srcset="assets/icon/company.svg" alt="icon-company" />
+            </div>
+            <div class="company__list-icon">
+              <img srcset="assets/icon/company-2.svg" alt="icon-company" />
+            </div>
+            <div class="company__list-icon">
+              <img srcset="assets/icon/company-3.svg" alt="icon-company" />
+            </div>
+            <div class="company__list-icon">
+              <img srcset="assets/icon/company-4.svg" alt="icon-company" />
+            </div>
+            <div class="company__list-icon">
+              <img srcset="assets/icon/company-5.svg" alt="icon-company" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- BUILD Your Crypto Portfolio  -->
+      <section class="buildportfolio">
+        <div class="container">
+          <div class="textbox">
+            <h2 class="heading --h2">Build your crypto portfolio</h2>
+            <p class="desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+            </p>
+          </div>
+          <div class="buildportfolio__list">
+            <figure class="buildportfolio__list-item">
+              <div class="icon-build">
+                <img srcset="assets/icon/i-build-1.svg" alt="icon-build" />
+              </div>
+              <div class="content">
+                <h3 class="heading title">Send & Receive</h3>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+                </p>
+              </div>
+            </figure>
+            <figure class="buildportfolio__list-item">
+              <div class="icon-build">
+                <img srcset="assets/icon/i-build-2.svg" alt="icon-build" />
+              </div>
+              <div class="content">
+                <h3 class="heading title">Trading Charts</h3>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+                </p>
+              </div>
+            </figure>
+            <figure class="buildportfolio__list-item">
+              <div class="icon-build">
+                <img srcset="assets/icon/i-build-3.svg" alt="icon-build" />
+              </div>
+              <div class="content">
+                <h3 class="heading title">100% Secure Wallet</h3>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+                </p>
+              </div>
+            </figure>
+            <figure class="buildportfolio__list-item">
+              <div class="icon-build">
+                <img srcset="assets/icon/i-build-4.svg" alt="icon-build" />
+              </div>
+              <div class="content">
+                <h3 class="heading title">Real Time Trading</h3>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+                </p>
+              </div>
+            </figure>
+            <figure class="buildportfolio__list-item">
+              <div class="content">
+                <h3 class="heading --h4">iOS & Android App</h3>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In amet, morbi non at sed neque.
+                </p>
+              </div>
+              <div class="build-img">
+                <img srcset="assets/img/iphone-build.png 2x" alt="iphone-img" />
+              </div>
+            </figure>
+          </div>
+          <div class="buildportfolio__btn">
+            <a href="https://cfdcircle.vn/" target="_blank" class="buildportfolio__btn-down --btn-down">Download App</a>
+          </div>
+        </div>
+        <div class="buildportfolio__blur --blur">
+          <img srcset="assets/img/blur-build.png 2x" alt="blur-buildportfolio" />
+        </div>
+      </section>
+      <!-- PRODUCTS -->
+      <section class="products">
+        <div class="container">
+          <div class="products__phone">
+            <div class="products__phone-img">
+              <img srcset="assets/img/two-phone.png" alt="two-iphone-img" />
+            </div>
+            <div class="products__phone-content">
+              <div class="phone-content-wrap">
+                <div class="textbox">
+                  <h2 class="heading --h2">Earn daily rewards on your idle tokens</h2>
+                  <p class="desc">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+                  </p>
+                </div>
+                <div class="list">
+                  <div class="list__icon">
+                    <img srcset="assets/icon/lowest-fees.svg" alt="icon" />
+                    <span class="text">Lowest fees in market</span>
+                  </div>
+                  <div class="list__icon">
+                    <img srcset="assets/icon/secure-transactions.svg" alt="icon" />
+                    <span class="text">Fast and secure transactions</span>
+                  </div>
+                  <div class="list__icon">
+                    <img srcset="assets/icon/secure-encryption.svg" alt="icon" />
+                    <span class="text">256-bit secure encryption</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products__laptop">
+          <div class="products__laptop-content">
+            <div class="laptop-content-wrap">
+              <div class="textbox">
+                <h2 class="heading --h2">Earn daily rewards on your idle tokens</h2>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+                </p>
+              </div>
+              <div class="list">
+                <div class="list__icon">
+                  <img srcset="assets/icon/private.svg" alt="icon" />
+                  <span class="text">100% Private data</span>
+                </div>
+                <div class="list__icon">
+                  <img srcset="assets/icon/99.svg" alt="icon" />
+                  <span class="text">99.99% Uptime guarantee</span>
+                </div>
+                <div class="list__icon">
+                  <img srcset="assets/icon/support.svg" alt="icon" />
+                  <span class="text">24/7 Dedicated support</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="products__laptop-img">
+            <img srcset="assets/icon/apple-computers.svg" alt="img-apple-computer" />
+          </div>
+        </div>
+        <div class="products__blur --blur">
+          <img srcset="assets/img/blur-products.png 2x" alt="blur-products" />
+        </div>
+      </section>
+      <!-- EXPLORE -->
+      <section class="explore">
+        <div class="container">
+          <div class="explore__left">
+            <div class="textbox">
+              <h2 class="heading --h2">Explore endless possibilities with FinanceFlow</h2>
+              <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+              </p>
+            </div>
+            <a href="https://cfdcircle.vn/" target="_blank" class="explore__left-btn --btn-down --btn-white">Download App</a>
+          </div>
+          <div class="explore__right">
+            <img srcset="assets/img/two-phone.png" alt="two-iphone-img" />
+          </div>
+        </div>
+      </section>
+      <!-- USERS SAY -->
+      <section class="userssay">
+        <div class="container">
+          <div class="userssay__top">
+            <h2 class="heading --h2">What our users say?</h2>
+            <a href="https://cfdcircle.vn/" target="_blank" class="userssay__top-btn --btn-down">Download App</a>
+          </div>
+        </div>
+        <div class="userssay__bottom">
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/girl-1.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/girl-2.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/male-1.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/male-2.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/girl-2.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/male-1.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/girl-1.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/male-1.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/girl-1.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+          <figure class="userssay__bottom-item">
+            <blockquote>
+              <p class="text">
+                “Lorem ipsum dolor sit amet, consectetur adipiscing elit. In commodo dolor fermentum dignissim et
+                pellentesque egestas mauris, faucibus. Tellus nisi amet non at phasellus faucibus senectus in”
+              </p>
+            </blockquote>
+            <div class="author">
+              <div class="author__img">
+                <img srcset="assets/img/girl-2.jpg" alt="avatar-img" />
+              </div>
+              <figcaption class="author__info">
+                <h5 class="author__info-name">John carter</h5>
+                <p class="author__info-text">Role, Company</p>
+              </figcaption>
+            </div>
+          </figure>
+        </div>
+        <!-- <ol class="userssay__dots">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ol> -->
+        <div class="userssay__blur --blur">
+          <img srcset="assets/img/blur-carousel.png 2x" alt="blur-userssay" />
+        </div>
+      </section>
+      <!-- GET STARTED TODAY -->
+      <section class="startedtoday">
+        <div class="container">
+          <div class="startedtoday__left">
+            <div class="textbox">
+              <h2 class="heading --h2">Get started today</h2>
+              <p class="desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aene.
+              </p>
+            </div>
+            <div class="startedtoday__left-list list">
+              <div class="list__icon">
+                <img srcset="assets/icon/download.svg" alt="icon" />
+                <span class="text">Download app</span>
+              </div>
+              <div class="list__icon">
+                <img srcset="assets/icon/account.svg" alt="icon" />
+                <span class="text">Create a free account</span>
+              </div>
+              <div class="list__icon">
+                <img srcset="assets/icon/start-trading.svg" alt="icon" />
+                <span class="text">Start trading</span>
+              </div>
+            </div>
+          </div>
+          <div class="startedtoday__right" data-video="CEH2GOUDPAA">
+            
+            <picture>
+              <source media="(max-width: 992px)" srcset="assets/img/video-m.jpg" />
+              <img srcset="assets/img/video.jpg" alt="startedtoday-video" class="startedtoday__right-img" />
+            </picture>
+            <div class="startedtoday__right-btn">
+              <svg width="26" height="29" viewBox="0 0 26 29" fill="none" xmlns="#www.w3.org/2000/svg">
+                <path
+                  d="M0.930664 27.2345C0.930664 28.3895 2.17812 29.1139 3.18127 28.5413L25.2412 15.9515C26.2531 15.3741 26.2531 13.9152 25.2412 13.3377L3.18127 0.747929C2.17812 0.175422 0.930664 0.899804 0.930664 2.05482V27.2345Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- LASTEST NEWS -->
+      <section class="news">
+        <div class="container">
+          <div class="textbox">
+            <h2 class="heading --h2">Browse our latest news</h2>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit non neque orci amet, amet .</p>
+          </div>
+          <div class="news__list --active-grid">
+            <article class="news__list-item">
+              <figure class="thumb">
+                <a href="./blog-detail.html" class="thumb__img">
+                  <img srcset="assets/img/blog-1.jpg" alt="blog-img" />
+                </a>
+                <div class="thumb__tag --tag">Products</div>
+              </figure>
+              <div class="content">
+                <div class="content__text">
+                  <h3 class="heading --h3">
+                    <a href="./blog-detail.html">Crypto Explained With Pros and Cons for Investment</a>
+                  </h3>
+                  <p class="content__text-desc">
+                    Lorem ipsum dolor sit ametero irseo, consectetur adipiscing elit. Scelerisque viverra donec diammeo.
+                  </p>
+                </div>
+                <div class="content__avatar author">
+                  <div class="content__avatar-img author__img">
+                    <img srcset="assets/img/male-2.jpg" alt="avatar-img" />
+                  </div>
+                  <div class="content__avatar-info author__info">
+                    <h5 class="heading author__info-name">Alex Turner</h5>
+                    <p class="info-date author__info-text">August 2, 2021</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="news__list-item">
+              <figure class="thumb">
+                <a href="./blog-detail.html" class="thumb__img">
+                  <img srcset="assets/img/blog-2.jpg" alt="blog-img" />
+                </a>
+                <div class="thumb__tag --tag">Products</div>
+              </figure>
+              <div class="content">
+                <div class="content__text">
+                  <h3 class="heading --h3">
+                    <a href="./blog-detail.html">Neque porro quisquam est, qui dolorem ipsum dolor qui dolorem ipsum dolor </a>
+                  </h3>
+                  <p class="content__text-desc">
+                    Lorem ipsum dolor sit ametero irseo, consectetur adipiscing elit. Scelerisque viverra donec diammeo.
+                  </p>
+                </div>
+                <div class="content__avatar author">
+                  <div class="content__avatar-img author__img">
+                    <img srcset="assets/img/male-2.jpg" alt="avatar-img" />
+                  </div>
+                  <div class="content__avatar-info author__info">
+                    <h5 class="heading author__info-name">Alex Turner</h5>
+                    <p class="info-date author__info-text">August 2, 2021</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="news__list-item">
+              <figure class="thumb">
+                <a href="./blog-detail.html" class="thumb__img">
+                  <img srcset="assets/img/blog-3.jpg" alt="blog-img" />
+                </a>
+                <div class="thumb__tag --tag">Products</div>
+              </figure>
+              <div class="content">
+                <div class="content__text">
+                  <h3 class="heading --h3">
+                    <a href="./blog-detail.html">Duis aute irure dolor in reprehenderit in voluptate</a>
+                  </h3>
+                  <p class="content__text-desc">
+                    Lorem ipsum dolor sit ametero irseo, consectetur adipiscing elit. Scelerisque viverra donec diammeo.
+                  </p>
+                </div>
+                <div class="content__avatar author">
+                  <div class="content__avatar-img author__img">
+                    <img srcset="assets/img/male-2.jpg" alt="avatar-img" />
+                  </div>
+                  <div class="content__avatar-info author__info">
+                    <h5 class="heading author__info-name">Alex Turner</h5>
+                    <p class="info-date author__info-text">August 2, 2021</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <a href="./blog.html" class="news__btn --btn-down --btn-gray">View All Articles</a>
+        </div>
+      </section>
+
+      <!-- DOWNLOAD -->
+      <section class="download">
+        <div class="container">
+          <div class="textbox">
+            <h2 class="heading --h2">Download our app</h2>
+            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sit non neque orci amet, amet .</p>
+          </div>
+          <div class="download__list">
+            <figure class="download__list-item">
+              <div class="content">
+                <h2 class="heading --h2 --min-h">
+                  <a href="#" target="_blank" rel="noopener noreferrer">Download for iOS</a>
+                </h2>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nulla integer in pellentesque
+                  tortor semper elementum. Felis.
+                </p>
+              </div>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn --primary">
+                <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5_19614)">
+                    <path
+                      d="M2.89196 24.0589C3.90895 25.5229 5.29949 27.5247 7.09357 27.5247V27.5212H7.18498C7.86984 27.4777 8.53946 27.2985 9.15543 26.9938H9.17267C9.95229 26.6126 10.8069 26.4128 11.6735 26.4091C12.5034 26.4182 13.3208 26.6135 14.0664 26.9808H14.0716C14.6946 27.297 15.38 27.4686 16.0774 27.483H16.1792C17.9841 27.456 19.1378 25.9391 20.3451 24.1093C21.1739 22.9142 21.8163 21.5984 22.25 20.2076V20.2006C21.5704 19.9123 20.9494 19.5 20.4184 18.9843C19.832 18.4268 19.3666 17.7531 19.0513 17.0055C18.7361 16.2579 18.578 15.4525 18.5868 14.6403C18.6038 13.5861 18.8836 12.5531 19.4003 11.6361C19.9169 10.7192 20.654 9.94782 21.5438 9.39272C20.9766 8.57776 20.2289 7.90699 19.3599 7.43351C18.4909 6.96002 17.5245 6.6968 16.537 6.66468C16.3724 6.64991 16.2249 6.64209 16.0989 6.64209C15.0096 6.71105 13.9425 6.98387 12.9523 7.4466H12.9316C12.4223 7.69534 11.8757 7.8574 11.3139 7.92618C10.7214 7.86295 10.1448 7.6944 9.61074 7.42836H9.59177C8.73578 7.01905 7.80992 6.7787 6.86419 6.72029H6.78658C5.63538 6.75676 4.51323 7.0933 3.52964 7.69705C2.54603 8.3008 1.73459 9.15114 1.17449 10.1651C0.0454163 12.4 -0.282374 14.9595 0.246607 17.41C0.663483 19.7825 1.5618 22.0428 2.88536 24.0494L2.89196 24.0589Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M11.1 6.344C11.1889 6.35197 11.2781 6.35546 11.3674 6.35443C12.0995 6.31719 12.8157 6.12494 13.4691 5.79023C14.1225 5.4555 14.6987 4.98583 15.1599 4.41178C16.1822 3.18276 16.6844 1.59846 16.5586 0C15.0035 0.163702 13.5668 0.911959 12.535 2.09555C11.5165 3.26402 11.0004 4.79218 11.1 6.344Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_19614">
+                      <rect width="23" height="28" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                App Store</a
+              >
+              <img srcset="assets/img/iPhone-14.png" alt="download-img" class="download-img" />
+            </figure>
+            <figure class="download__list-item">
+              <div class="content">
+                <h2 class="heading --h2 --android">
+                  <a href="#" target="_blank" rel="noopener noreferrer">Download for Android</a>
+                </h2>
+                <p class="desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nulla integer in pellentesque
+                  tortor semper elementum. Felis.
+                </p>
+              </div>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="btn --primary">
+                <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5_19624)">
+                    <path
+                      d="M16.5181 16.5951L13.0655 13.136L1.64062 24.7387C1.74984 24.6974 1.8557 24.6478 1.95727 24.5902L16.5181 16.5951Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M0.00850522 1.94011C0.0144238 3.35543 0.107148 22.2237 0.116026 23.4134C0.0902982 23.6611 0.125802 23.9113 0.219399 24.142C0.312996 24.3725 0.4618 24.5765 0.652648 24.7357L12.5668 12.6372L0.600367 0.643555C0.393848 0.785546 0.229684 0.981195 0.125431 1.20957C0.0211803 1.43795 -0.0192362 1.69047 0.00850522 1.94011Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M17.159 8.98096L13.5615 12.6341L17.1629 16.2417L22.1129 13.5229C22.7048 13.1952 23.3341 12.3599 22.1129 11.6918L17.159 8.98096Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M1.95723 0.659347C1.79912 0.5753 1.62689 0.521278 1.44922 0.5L13.0626 12.1343L16.5151 8.62869L1.95723 0.659347Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_19624">
+                      <rect width="23" height="25" fill="white" transform="translate(0 0.5)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Play Store</a
+              >
+              <img srcset="assets/img/iPhone-14-2.png" alt="download-img" class="download-img" />
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__head">
+          <a href="./" class="footer__head-logo">
+            <img srcset="assets/icon/logo.svg" alt="logo-finance-flow" />
+          </a>
+          <div class="footer__head-socials">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social">
+              <img srcset="assets/icon/insta.svg" alt="instagram-icon" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social">
+              <img srcset="assets/icon/facebook.svg" alt="facebook-icon" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social">
+              <img srcset="assets/icon/linked.svg" alt="linked-icon" />
+            </a>
+          </div>
+        </div>
+        <div class="footer__body">
+          <div class="footer__body-left">
+            <h3 class="text">Menu</h3>
+            <div class="menu">
+              <ul class="menu__small --left">
+                <li>
+                  <a href="./">Home</a>
+                </li>
+                <li>
+                  <a href="./about.html" target="_blank" rel="noopener noreferrer">About</a>
+                </li>
+                <li>
+                  <a href="./pricing.html" target="_blank" rel="noopener noreferrer">Pricing</a>
+                </li>
+              </ul>
+              <ul class="menu__small --right">
+                <li>
+                  <a href="./tokens.html" target="_blank" rel="noopener noreferrer">Tokens</a>
+                </li>
+                <li>
+                  <a href="./blog.html" target="_blank" rel="noopener noreferrer">Blog</a>
+                </li>
+                <li>
+                  <a href="./contactus.html" target="_blank" rel="noopener noreferrer"> contact us </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__body-right">
+            <div class="textbox">
+              <h3 class="title">Download our Application</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nulla integer</p>
+            </div>
+            <div class="btn-download">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="icon --primary">
+                <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5_19614)">
+                    <path
+                      d="M2.89196 24.0589C3.90895 25.5229 5.29949 27.5247 7.09357 27.5247V27.5212H7.18498C7.86984 27.4777 8.53946 27.2985 9.15543 26.9938H9.17267C9.95229 26.6126 10.8069 26.4128 11.6735 26.4091C12.5034 26.4182 13.3208 26.6135 14.0664 26.9808H14.0716C14.6946 27.297 15.38 27.4686 16.0774 27.483H16.1792C17.9841 27.456 19.1378 25.9391 20.3451 24.1093C21.1739 22.9142 21.8163 21.5984 22.25 20.2076V20.2006C21.5704 19.9123 20.9494 19.5 20.4184 18.9843C19.832 18.4268 19.3666 17.7531 19.0513 17.0055C18.7361 16.2579 18.578 15.4525 18.5868 14.6403C18.6038 13.5861 18.8836 12.5531 19.4003 11.6361C19.9169 10.7192 20.654 9.94782 21.5438 9.39272C20.9766 8.57776 20.2289 7.90699 19.3599 7.43351C18.4909 6.96002 17.5245 6.6968 16.537 6.66468C16.3724 6.64991 16.2249 6.64209 16.0989 6.64209C15.0096 6.71105 13.9425 6.98387 12.9523 7.4466H12.9316C12.4223 7.69534 11.8757 7.8574 11.3139 7.92618C10.7214 7.86295 10.1448 7.6944 9.61074 7.42836H9.59177C8.73578 7.01905 7.80992 6.7787 6.86419 6.72029H6.78658C5.63538 6.75676 4.51323 7.0933 3.52964 7.69705C2.54603 8.3008 1.73459 9.15114 1.17449 10.1651C0.0454163 12.4 -0.282374 14.9595 0.246607 17.41C0.663483 19.7825 1.5618 22.0428 2.88536 24.0494L2.89196 24.0589Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M11.1 6.344C11.1889 6.35197 11.2781 6.35546 11.3674 6.35443C12.0995 6.31719 12.8157 6.12494 13.4691 5.79023C14.1225 5.4555 14.6987 4.98583 15.1599 4.41178C16.1822 3.18276 16.6844 1.59846 16.5586 0C15.0035 0.163702 13.5668 0.911959 12.535 2.09555C11.5165 3.26402 11.0004 4.79218 11.1 6.344Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_19614">
+                      <rect width="23" height="28" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                App Store
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="icon --primary">
+                <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5_19624)">
+                    <path
+                      d="M16.5181 16.5951L13.0655 13.136L1.64062 24.7387C1.74984 24.6974 1.8557 24.6478 1.95727 24.5902L16.5181 16.5951Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M0.00850522 1.94011C0.0144238 3.35543 0.107148 22.2237 0.116026 23.4134C0.0902982 23.6611 0.125802 23.9113 0.219399 24.142C0.312996 24.3725 0.4618 24.5765 0.652648 24.7357L12.5668 12.6372L0.600367 0.643555C0.393848 0.785546 0.229684 0.981195 0.125431 1.20957C0.0211803 1.43795 -0.0192362 1.69047 0.00850522 1.94011Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M17.159 8.98096L13.5615 12.6341L17.1629 16.2417L22.1129 13.5229C22.7048 13.1952 23.3341 12.3599 22.1129 11.6918L17.159 8.98096Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M1.95723 0.659347C1.79912 0.5753 1.62689 0.521278 1.44922 0.5L13.0626 12.1343L16.5151 8.62869L1.95723 0.659347Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_19624">
+                      <rect width="23" height="25" fill="white" transform="translate(0 0.5)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Play Store</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="copyright">© 2023 CFD Circle, Inc.</p>
+          <div class="footer__bottom-btnup">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="arrow-up">
+                <path
+                  id="Vector"
+                  d="M13 21.9375L13 4.875M19.5 10.5625L13 4.0625L6.5 10.5625"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Popup Video -->
+    <div class="popupvideo">
+      <div class="popupvideo__inner">
+        <div class="popupvideo__inner-iframe">
+          <iframe
+            width="100%"
+            height="100%"
+            src=""
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+          <div class="close-popupvideo">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="icons8-close 1">
+                <path
+                  id="Vector"
+                  d="M3.26634 1.86683C3.14693 1.86683 3.02739 1.91232 2.93639 2.00355L2.00306 2.93688C1.82059 3.11935 1.82059 3.41478 2.00306 3.59678L5.40645 7.00016L2.00306 10.4035C1.82059 10.586 1.82059 10.8814 2.00306 11.0634L2.93639 11.9968C3.11886 12.1792 3.41429 12.1792 3.59629 11.9968L6.99968 8.59339L10.4031 11.9968C10.5851 12.1792 10.881 12.1792 11.063 11.9968L11.9963 11.0634C12.1788 10.881 12.1788 10.5855 11.9963 10.4035L8.5929 7.00016L11.9963 3.59678C12.1788 3.41478 12.1788 3.11888 11.9963 2.93688L11.063 2.00355C10.8805 1.82108 10.5851 1.82108 10.4031 2.00355L6.99968 5.40693L3.59629 2.00355C3.50506 1.91232 3.38575 1.86683 3.26634 1.86683Z"
+                  fill="white"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="dest/jsmain.min.js"></script>
+    <script type="text/javascript" src="dest/main.js"></script>
+  </body>
+</html>

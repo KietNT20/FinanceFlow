@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0, user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>CFD Circle</title>
+
+    <meta name="title" content="CFD Circle" />
+    <meta name="description" content="FinanceFlow" />
+    <meta name="keyword" content="FinanceFlow" />
+
+    <link rel="canonical" href="https://cfdcircle.vn" />
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- Meta Tag Facebook -->
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta
+      property="og:description"
+      content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+    />
+    <meta property="og:url" content="https://cfdcircle.vn" />
+    <meta property="og:site_name" content="CFD Circle" />
+    <meta property="og:image" content="./assets/thumbnail/thumbnail.jpg" />
+
+    <!-- Meta Tag Twitter -->
+    <meta name="twitter:card" content="FinanceFlow" />
+    <meta name="twitter:site" content="CFD Circle" />
+    <meta name="twitter:title" content="FinanceFlow - CFD Circle | Đào tạo lập trình thực chiến" />
+    <meta
+      name="twitter:description"
+      content="FinanceFlow là dự án được hoàn thành trong khoá học lập trình front-end Web Responsive tại CFD Circle"
+    />
+    <meta name="twitter:image" content="./assets/thumbnail/thumbnail.jpg" />
+
+    <style>
+      /* CSS Loading Here */
+      .loading {
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        position: fixed;
+        z-index: 999;
+        background: #010725;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .loading.--is-loaded {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .loading .loading__inner {
+        width: 140px;
+        height: 5px;
+        border-radius: 10px;
+        background: #0328ee;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .loading .loading__inner .loading__inner-progress {
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        background: #ffffff;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      .loading .loading__percent {
+        text-align: center;
+        color: #fff;
+        font-size: 17px;
+        margin-top: 15px;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+
+      @media screen and (max-width: 400px) {
+        .loading .loading__inner {
+          width: 129px;
+        }
+      }
+    </style>
+
+    <link rel="stylesheet" href="dest/style.min.css" />
+    <link rel="stylesheet" href="dest/fonts.css" />
+  </head>
+
+  <body class="pricingpage --bg-darker">
+    <!-- LOADING -->
+    <div class="loading">
+      <div class="loading__inner">
+        <div class="loading__inner-progress"></div>
+      </div>
+      <span class="loading__percent">0%</span>
+    </div>
+
+    <!-- PROGRESS BAR -->
+    <div class="progressbar"></div>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <!-- HEADER LOGO -->
+        <div class="header__logo">
+          <a href="./" class="header__logo-thumb">
+            <picture>
+              <source media="(max-width: 992px)" srcset="assets/icon/logo-m.svg" />
+              <img srcset="assets/icon/logo.svg" alt="logo-finance-flow" />
+            </picture>
+          </a>
+        </div>
+
+        <!-- HEADER MENU -->
+        <nav class="header__menu">
+          <ul>
+            <li><a href="./" class="btn --active-menu">Home</a></li>
+            <li><a href="./about.html" class="btn">About</a></li>
+            <li><a href="./pricing.html" class="btn">Pricing</a></li>
+            <li><a href="./tokens.html" class="btn">Tokens</a></li>
+            <li><a href="./blog.html" class="btn">Blog</a></li>
+            <li><a href="./contactus.html" class="btn">contact us</a></li>
+          </ul>
+        </nav>
+
+        <!-- HEADER BUTTON -->
+        <div class="header__cta">
+          <a
+            href="https://cfdcircle.vn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="header__cta-btn --btn-down --btn-small"
+            >Download App</a
+          >
+          <div class="header__cta-btnmenu">
+            <span></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MENU MOBILE -->
+    <nav class="navmenu">
+      <ul class="navmenu__btn">
+        <li><a href="./" class="btn --active">Home</a></li>
+        <li><a href="./about.html" class="btn">About</a></li>
+        <li><a href="./pricing.html" class="btn">Pricing</a></li>
+        <li><a href="./tokens.html" class="btn">Tokens</a></li>
+        <li><a href="./blog.html" class="btn">Blog</a></li>
+        <li><a href="./contactus.html" class="btn">contact us</a></li>
+        <li><a href="https://cfdcircle.vn/" target="_blank" class="btnmain --btn-down">Download App</a></li>
+      </ul>
+      <div class="blur --blur"><img srcset="assets/img/blur-menu-m.png 2x" alt="" /></div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+      <section class="pricing">
+        <div class="container">
+          <div class="textbox --center">
+            <h1 class="heading --h1">Pricing</h1>
+            <p class="desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat nulla suspendisse tortor aenean dis
+              placerat. Scelerisque
+            </p>
+          </div>
+          <div class="pricing__methods">
+            <div class="pricing__methods-item">
+              <div class="icon-wrap">
+                <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="68" height="68" rx="20" fill="#0328EE" />
+                  <g opacity="1" clip-path="url(#clip0_1_17888)">
+                    <path
+                      opacity="0.4"
+                      d="M15.7512 22.5122H39.5484C40.6493 22.5122 41.5429 23.4052 41.5429 24.5055C41.5429 25.6057 40.6493 26.4988 39.5484 26.4988H15.7512C14.6503 26.4988 13.7568 25.6057 13.7568 24.5055C13.7568 23.4052 14.6503 22.5122 15.7512 22.5122Z"
+                      fill="white"
+                    />
+                    <mask
+                      id="mask0_1_17888"
+                      style="mask-type: alpha"
+                      maskUnits="userSpaceOnUse"
+                      x="37"
+                      y="14"
+                      width="18"
+                      height="22"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M37.4185 35.4653V14H54.5796V35.4653H37.4185Z"
+                        fill="white"
+                      />
+                    </mask>
+                    <g mask="url(#mask0_1_17888)">
+                      <path
+                        d="M38.7654 14.1833C39.0168 14.1833 39.2646 14.2533 39.4837 14.3898L53.7359 23.366C54.1274 23.6136 54.3663 24.0427 54.3663 24.5057C54.3663 24.9688 54.1274 25.3978 53.7359 25.6455L39.4837 34.6216C39.0689 34.8819 38.5444 34.8981 38.1153 34.6593C37.6842 34.4224 37.4185 33.9719 37.4185 33.4819V15.5295C37.4185 15.0395 37.6842 14.589 38.1153 14.3521C38.3181 14.239 38.5427 14.1833 38.7654 14.1833Z"
+                        fill="white"
+                      />
+                    </g>
+                    <path
+                      opacity="0.4"
+                      d="M52.319 46.0591H28.5218C27.4208 46.0591 26.5273 45.1661 26.5273 44.0658C26.5273 42.9654 27.4208 42.0725 28.5218 42.0725H52.319C53.4198 42.0725 54.3134 42.9654 54.3134 44.0658C54.3134 45.1661 53.4198 46.0591 52.319 46.0591Z"
+                      fill="white"
+                    />
+                    <mask
+                      id="mask1_1_17888"
+                      style="mask-type: alpha"
+                      maskUnits="userSpaceOnUse"
+                      x="13"
+                      y="33"
+                      width="18"
+                      height="22"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M30.5156 33.1057V54.571H13.3545V33.1057H30.5156Z"
+                        fill="white"
+                      />
+                    </mask>
+                    <g mask="url(#mask1_1_17888)">
+                      <path
+                        d="M29.1688 54.3877C28.9174 54.3877 28.6696 54.3177 28.4505 54.1813L14.1982 45.2052C13.8067 44.9574 13.5679 44.5285 13.5679 44.0654C13.5679 43.6024 13.8067 43.1733 14.1982 42.9257L28.4505 33.9495C28.8653 33.6891 29.3898 33.673 29.8189 33.9117C30.25 34.1486 30.5157 34.5991 30.5157 35.0892V53.0416C30.5157 53.5316 30.25 53.9821 29.8189 54.219C29.616 54.3321 29.3915 54.3877 29.1688 54.3877Z"
+                        fill="white"
+                      />
+                    </g>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_17888">
+                      <rect width="42" height="41" fill="white" transform="translate(13 14)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h3 class="title">Send & receive</h3>
+            </div>
+            <div class="pricing__methods-item">
+              <div class="icon-wrap">
+                <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="68" height="68" rx="20" fill="#0328EE" />
+                  <g opacity="1" clip-path="url(#clip0_1_17906)">
+                    <path
+                      opacity="0.4"
+                      d="M43.7179 13H24.3711C17.3207 13 13.3262 16.9946 13.3262 24.0448V43.3733C13.3262 50.4237 17.3207 54.4183 24.3711 54.4183H43.7179C50.7683 54.4183 54.7444 50.4237 54.7444 43.3733V24.0448C54.7444 16.9946 50.7683 13 43.7179 13Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M24.4439 28.2605C23.5051 28.2605 22.7319 29.0336 22.7319 29.9908V44.2203C22.7319 45.1591 23.5051 45.9322 24.4439 45.9322C25.4011 45.9322 26.1743 45.1591 26.1743 44.2203V29.9908C26.1743 29.0336 25.4011 28.2605 24.4439 28.2605Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M34.1084 21.4678C33.1696 21.4678 32.3965 22.2409 32.3965 23.1982V44.2201C32.3965 45.159 33.1696 45.9322 34.1084 45.9322C35.0656 45.9322 35.8387 45.159 35.8387 44.2201V23.1982C35.8387 22.2409 35.0656 21.4678 34.1084 21.4678Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M43.644 35.771C42.6868 35.771 41.9136 36.5442 41.9136 37.5014V44.2203C41.9136 45.1592 42.6868 45.9323 43.6255 45.9323C44.5827 45.9323 45.3559 45.1592 45.3559 44.2203V37.5014C45.3559 36.5442 44.5827 35.771 43.644 35.771Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_17906">
+                      <rect width="42" height="42" fill="white" transform="translate(13 13)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h3 class="title">Trading Charts</h3>
+            </div>
+            <div class="pricing__methods-item">
+              <div class="icon-wrap">
+                <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="68" height="68" rx="20" fill="#0328EE" />
+                  <g opacity="1" clip-path="url(#clip0_1_17916)">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M54.0855 26.162H45.173C41.0255 26.1692 37.6655 29.4376 37.658 33.4721C37.6524 37.5157 41.0161 40.7987 45.173 40.8041H54.093V41.4466C54.093 48.5001 49.807 52.671 42.5539 52.671H23.541C16.286 52.671 12 48.5001 12 41.4466V26.0837C12 19.0301 16.286 14.8755 23.541 14.8755H42.5464C49.7995 14.8755 54.0855 19.0301 54.0855 26.0837V26.162ZM21.9751 26.1455H33.8454H33.8528H33.8678C34.7565 26.1419 35.4748 25.4375 35.4711 24.5713C35.4673 23.7069 34.7414 23.0081 33.8528 23.0118H21.9751C21.0921 23.0154 20.3756 23.7124 20.3719 24.5732C20.3681 25.4375 21.0865 26.1419 21.9751 26.1455Z"
+                      fill="white"
+                    />
+                    <path
+                      opacity="0.4"
+                      d="M41.544 34.3961C41.9842 36.3934 43.7394 37.7986 45.7433 37.7621H52.5832C53.4169 37.7621 54.0933 37.0732 54.0933 36.2216V30.906C54.0914 30.0563 53.4169 29.3656 52.5832 29.3638H45.5822C43.3028 29.3711 41.4617 31.2587 41.4653 33.5848C41.4653 33.8572 41.4922 34.1294 41.544 34.3961Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M45.674 35.6629C46.8363 35.6629 47.7786 34.7228 47.7786 33.5631C47.7786 32.4035 46.8363 31.4634 45.674 31.4634C44.5116 31.4634 43.5693 32.4035 43.5693 33.5631C43.5693 34.7228 44.5116 35.6629 45.674 35.6629Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_1_17916">
+                      <rect width="43" height="39" fill="white" transform="translate(12 14)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <h3 class="title">Wallet</h3>
+            </div>
+            <div class="pricing__methods-item">
+              <div class="icon-wrap">
+                <svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="68" height="68" rx="20" fill="#0328EE" />
+                  <g opacity="1">
+                    <path
+                      d="M48.6975 19.5031C46.2009 16.491 42.8317 14.3197 39.0501 13.2855C35.2686 12.2514 31.2588 12.4048 27.5679 13.7249C23.8771 15.045 20.6853 17.4674 18.428 20.6614C16.1707 23.8556 14.9581 27.6656 14.9556 31.5716V36.7537"
+                      stroke="white"
+                      stroke-opacity="0.4"
+                      stroke-width="4.92496"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M21.0117 47.7566C23.6299 50.52 27.0206 52.4368 30.7448 53.2589C34.4691 54.081 38.3554 53.7706 41.9005 52.3678C45.4455 50.965 48.4862 48.5345 50.6288 45.391C52.7713 42.2474 53.9172 38.5355 53.9178 34.736V31.2859"
+                      stroke="white"
+                      stroke-opacity="0.4"
+                      stroke-width="4.92496"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M23.5805 28.2663C23.5696 28.4741 23.5007 28.6759 23.3779 28.8511L15.3068 40.2399C15.0841 40.5528 14.7176 40.7316 14.3332 40.7115C13.9488 40.6914 13.6031 40.4754 13.4145 40.1411L6.58269 27.9743C6.38469 27.6202 6.39408 27.1862 6.61091 26.8418C6.82633 26.4959 7.21188 26.2957 7.61864 26.317L22.5216 27.0949C22.9284 27.1162 23.2908 27.3553 23.4688 27.7218C23.5538 27.8944 23.5903 28.0823 23.5805 28.2663Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M44.8517 38.6356C44.8589 38.4304 44.9234 38.2301 45.0415 38.0553L52.8077 26.6804C53.022 26.3679 53.3805 26.1852 53.7601 26.1984C54.1397 26.2116 54.4846 26.4187 54.6764 26.7453L61.627 38.6321C61.8285 38.9781 61.8268 39.4065 61.6188 39.75C61.4122 40.095 61.0353 40.299 60.6336 40.285L45.9168 39.7731C45.5151 39.7592 45.1533 39.5294 44.9715 39.1709C44.8846 39.0021 44.8454 38.8173 44.8517 38.6356Z"
+                      fill="white"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <h3 class="title">Real Time Trading</h3>
+            </div>
+          </div>
+          <div class="pricing__wrap">
+            <div class="pricing__wrap-item">
+              <div class="tag --tag">Expert</div>
+              <div class="content">
+                <h2 class="heading --h2">$ 100 USD</h2>
+                <p class="desc">Lorem ipsum dolor sit amet, ametor consectetur adipiscing elit. Et nibh.</p>
+              </div>
+              <div class="features">
+                <h3 class="title">Features</h3>
+                <ul>
+                  <li>Everything included in Basic</li>
+                  <li>Trading up to $1MM per month</li>
+                  <li>Windows & macOS App</li>
+                  <li>Premium Support</li>
+                </ul>
+                <a href="./contactus.html" class="btnmain --btn-down">contact us</a>
+              </div>
+            </div>
+            <div class="pricing__wrap-item">
+              <div class="tag --tag">Basic</div>
+              <div class="content">
+                <h2 class="heading --h2">$ 100 USD</h2>
+                <p class="desc">Lorem ipsum dolor sit amet, ametor consectetur adipiscing elit. Et nibh.</p>
+              </div>
+              <div class="features">
+                <h3 class="title">Features</h3>
+                <ul>
+                  <li>Everything included in Basic</li>
+                  <li>Trading up to $1MM per month</li>
+                  <li>Windows & macOS App</li>
+                  <li>Premium Support</li>
+                </ul>
+                <a href="./contactus.html" class="btnmain --btn-down">contact us</a>
+              </div>
+            </div>
+            <div class="pricing__wrap-item">
+              <div class="tag --tag">Pro</div>
+              <div class="content">
+                <h2 class="heading --h2">$ 100 USD</h2>
+                <p class="desc">Lorem ipsum dolor sit amet, ametor consectetur adipiscing elit. Et nibh.</p>
+              </div>
+              <div class="features">
+                <h3 class="title">Features</h3>
+                <ul>
+                  <li>Everything included in Basic</li>
+                  <li>Trading up to $1MM per month</li>
+                  <li>Windows & macOS App</li>
+                  <li>Premium Support</li>
+                </ul>
+                <a href="./contactus.html" class="btnmain --btn-down">contact us</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__head">
+          <a href="./" class="footer__head-logo">
+            <img srcset="assets/icon/logo.svg" alt="logo-finance-flow" />
+          </a>
+          <div class="footer__head-socials">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social">
+              <img srcset="assets/icon/insta.svg" alt="instagram-icon" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social">
+              <img srcset="assets/icon/facebook.svg" alt="facebook-icon" />
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="social">
+              <img srcset="assets/icon/linked.svg" alt="linked-icon" />
+            </a>
+          </div>
+        </div>
+        <div class="footer__body">
+          <div class="footer__body-left">
+            <h3 class="text">Menu</h3>
+            <div class="menu">
+              <ul class="menu__small --left">
+                <li>
+                  <a href="./">Home</a>
+                </li>
+                <li>
+                  <a href="./about.html" target="_blank" rel="noopener noreferrer">About</a>
+                </li>
+                <li>
+                  <a href="./pricing.html" target="_blank" rel="noopener noreferrer">Pricing</a>
+                </li>
+              </ul>
+              <ul class="menu__small --right">
+                <li>
+                  <a href="./tokens.html" target="_blank" rel="noopener noreferrer">Tokens</a>
+                </li>
+                <li>
+                  <a href="./blog.html" target="_blank" rel="noopener noreferrer">Blog</a>
+                </li>
+                <li>
+                  <a href="./contactus.html" target="_blank" rel="noopener noreferrer"> contact us </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__body-right">
+            <div class="textbox">
+              <h3 class="title">Download our Application</h3>
+              <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed nulla integer</p>
+            </div>
+            <div class="btn-download">
+              <a href="#" target="_blank" rel="noopener noreferrer" class="icon --primary">
+                <svg width="23" height="28" viewBox="0 0 23 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5_19614)">
+                    <path
+                      d="M2.89196 24.0589C3.90895 25.5229 5.29949 27.5247 7.09357 27.5247V27.5212H7.18498C7.86984 27.4777 8.53946 27.2985 9.15543 26.9938H9.17267C9.95229 26.6126 10.8069 26.4128 11.6735 26.4091C12.5034 26.4182 13.3208 26.6135 14.0664 26.9808H14.0716C14.6946 27.297 15.38 27.4686 16.0774 27.483H16.1792C17.9841 27.456 19.1378 25.9391 20.3451 24.1093C21.1739 22.9142 21.8163 21.5984 22.25 20.2076V20.2006C21.5704 19.9123 20.9494 19.5 20.4184 18.9843C19.832 18.4268 19.3666 17.7531 19.0513 17.0055C18.7361 16.2579 18.578 15.4525 18.5868 14.6403C18.6038 13.5861 18.8836 12.5531 19.4003 11.6361C19.9169 10.7192 20.654 9.94782 21.5438 9.39272C20.9766 8.57776 20.2289 7.90699 19.3599 7.43351C18.4909 6.96002 17.5245 6.6968 16.537 6.66468C16.3724 6.64991 16.2249 6.64209 16.0989 6.64209C15.0096 6.71105 13.9425 6.98387 12.9523 7.4466H12.9316C12.4223 7.69534 11.8757 7.8574 11.3139 7.92618C10.7214 7.86295 10.1448 7.6944 9.61074 7.42836H9.59177C8.73578 7.01905 7.80992 6.7787 6.86419 6.72029H6.78658C5.63538 6.75676 4.51323 7.0933 3.52964 7.69705C2.54603 8.3008 1.73459 9.15114 1.17449 10.1651C0.0454163 12.4 -0.282374 14.9595 0.246607 17.41C0.663483 19.7825 1.5618 22.0428 2.88536 24.0494L2.89196 24.0589Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M11.1 6.344C11.1889 6.35197 11.2781 6.35546 11.3674 6.35443C12.0995 6.31719 12.8157 6.12494 13.4691 5.79023C14.1225 5.4555 14.6987 4.98583 15.1599 4.41178C16.1822 3.18276 16.6844 1.59846 16.5586 0C15.0035 0.163702 13.5668 0.911959 12.535 2.09555C11.5165 3.26402 11.0004 4.79218 11.1 6.344Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_19614">
+                      <rect width="23" height="28" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                App Store
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="icon --primary">
+                <svg width="23" height="26" viewBox="0 0 23 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_5_19624)">
+                    <path
+                      d="M16.5181 16.5951L13.0655 13.136L1.64062 24.7387C1.74984 24.6974 1.8557 24.6478 1.95727 24.5902L16.5181 16.5951Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M0.00850522 1.94011C0.0144238 3.35543 0.107148 22.2237 0.116026 23.4134C0.0902982 23.6611 0.125802 23.9113 0.219399 24.142C0.312996 24.3725 0.4618 24.5765 0.652648 24.7357L12.5668 12.6372L0.600367 0.643555C0.393848 0.785546 0.229684 0.981195 0.125431 1.20957C0.0211803 1.43795 -0.0192362 1.69047 0.00850522 1.94011Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M17.159 8.98096L13.5615 12.6341L17.1629 16.2417L22.1129 13.5229C22.7048 13.1952 23.3341 12.3599 22.1129 11.6918L17.159 8.98096Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M1.95723 0.659347C1.79912 0.5753 1.62689 0.521278 1.44922 0.5L13.0626 12.1343L16.5151 8.62869L1.95723 0.659347Z"
+                      fill="white"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_5_19624">
+                      <rect width="23" height="25" fill="white" transform="translate(0 0.5)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+                Play Store</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="copyright">© 2023 CFD Circle, Inc.</p>
+          <div class="footer__bottom-btnup">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g id="arrow-up">
+                <path
+                  id="Vector"
+                  d="M13 21.9375L13 4.875M19.5 10.5625L13 4.0625L6.5 10.5625"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Javascript -->
+    <script type="text/javascript" src="dest/jsmain.min.js"></script>
+    <script type="text/javascript" src="dest/main.js"></script>
+  </body>
+</html>

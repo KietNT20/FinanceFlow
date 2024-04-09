@@ -1,0 +1,232 @@
+.blogpage {
+  .main {
+    margin-top: var(--height-header);
+  }
+  /* Blog */
+  .blog {
+    padding-top: 70px;
+    padding-bottom: 92px;
+    .textbox {
+      @include mid(true);
+      justify-content: space-between;
+      margin-bottom: 48px;
+      .desc {
+        max-width: 568px;
+      }
+    }
+    &__content {
+      background-color: var(--blue-dark);
+      border-radius: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--grid-gap);
+      overflow: hidden;
+      &-detail {
+        padding: 58px 78px 58px 47px;
+        .title {
+          .heading-title {
+            @include styleText(sbo, 2.8rem, 4.001rem, var(--white));
+            @include textLS(0.028rem, 700);
+            margin-bottom: 16px;
+            margin-top: 21px;
+            @include transition(var(--time));
+            &:hover {
+              color: var(--blue);
+            }
+          }
+          .desc {
+            @include overtext(3);
+          }
+        }
+      }
+      &-img {
+        @include midImg;
+        @include frameimg(586px, 334px);
+        height: 100%;
+        img {
+          @include mid(false);
+          @include transition(var(--time));
+        }
+        &:hover {
+          img {
+            @include transform(translate(-50%, -50%) scale(1.1));
+          }
+        }
+      }
+    }
+
+    &__news {
+      display: none;
+    }
+    /* RESPONSIVE */
+    @include sm {
+      .textbox {
+        display: initial;
+        .heading {
+          margin-bottom: 16px;
+        }
+      }
+      &__content {
+        margin-top: 47px;
+        grid-template-columns: 1fr;
+        gap: initial;
+        z-index: 1;
+        &-img {
+          grid-area: 1/1/2/2;
+        }
+        &-detail {
+          position: relative;
+
+          .tag {
+            position: absolute;
+            top: 0;
+            @include transform(translateY(-50%));
+            z-index: 2;
+          }
+        }
+      }
+    }
+
+    @include xxs {
+      .textbox {
+        &__wrap {
+          .news__list {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+        .desc {
+          max-width: 320px;
+        }
+      }
+      &__content {
+        display: none;
+      }
+      &__news {
+        display: flex;
+        margin-top: 47px;
+        &-content {
+          .content__text {
+            .heading {
+              @include overtext(2);
+            }
+            &-desc {
+              @include overtext(3);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Latest Posts */
+  .lastestposts {
+    padding-top: 148px;
+    padding-bottom: 80px;
+    .textbox {
+      @include mid(true);
+      justify-content: space-between;
+      margin-bottom: 64px;
+      &__tabs {
+        display: flex;
+        gap: 16px;
+        cursor: pointer;
+        flex-wrap: wrap;
+      }
+    }
+    &__pages {
+      @include mid(true);
+      gap: 16px;
+      margin-top: 26px;
+      &-prev,
+      &-next {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.1);
+        @include size(36px);
+        @include mid(true);
+        @include transition(var(--time));
+        svg {
+          opacity: 0.2;
+        }
+      }
+      &-prev {
+        pointer-events: none;
+      }
+      &-next {
+        svg {
+          @include transition(opacity var(--time));
+        }
+        &.--active {
+          background-color: var(--blue-dark);
+          svg {
+            opacity: initial;
+          }
+        }
+        &:hover {
+          background-color: var(--blue);
+          svg {
+            opacity: initial;
+          }
+        }
+      }
+      &-prev {
+        @include transform(rotate(-180deg));
+      }
+      &-number {
+        @include mid(true);
+        padding: 0px 8px;
+        @include transition(var(--time));
+        height: 100%;
+        cursor: pointer;
+        &.--active,
+        &:hover {
+          color: var(--blue);
+        }
+      }
+    }
+    /* RESPONSIVE */
+    @include sm {
+      .textbox {
+        margin-bottom: 24px;
+        display: block;
+        &__tabs {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      &__wrap {
+        .news__list {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+    @include xs {
+      padding-top: 80px;
+      .textbox {
+        text-align: center;
+        .heading {
+          margin-bottom: 24px;
+        }
+        &__wraptab {
+          margin-left: calc(var(--gap) * (-1));
+        }
+        &__tabs {
+          display: flex;
+          flex-wrap: initial;
+          overflow-x: scroll;
+          padding-left: var(--gap);
+          padding-right: var(--gap);
+          width: 100vw;
+        }
+      }
+      &__wrap {
+      }
+      @include landscape {
+        &__wrap {
+          .news__list {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      }
+    }
+  }
+}

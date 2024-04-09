@@ -1,0 +1,87 @@
+html {
+  font-size: 62.5%; // 1rem = 10px\
+
+  body {
+    @include customscroll;
+    width: 100%;
+    max-width: var(--max-width-page);
+    margin: auto;
+    scroll-behavior: smooth;
+    font-family: sr;
+    font-size: var(--fs-body1);
+    line-height: var(--lh-body1);
+    color: var(--white);
+    font-weight: 400;
+    &.--disable-scroll {
+      height: 100vh;
+      overflow: hidden;
+    }
+    &.--is-loaded {
+      height: auto;
+
+
+      .loading {
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s;
+        -webkit-transition: 0.4s;
+        -moz-transition: 0.4s;
+        -ms-transition: 0.4s;
+        -o-transition: 0.4s;
+      }
+    }
+    .container-fluid {
+      width: 100%;
+      max-width: var(--max-width-container-fluid);
+      padding-right: var(--gap);
+      padding-left: var(--gap);
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+    }
+    .container {
+      width: 100%;
+      max-width: var(--max-width-container);
+      padding-right: var(--gap);
+      padding-left: var(--gap);
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+    }
+    .main {
+      position: relative;
+      section {
+        &.--ptb {
+          padding: var(--pd-section) 0;
+        }
+        &.--pt {
+          padding-top: var(--pd-section);
+        }
+        &.--pb {
+          padding-bottom: var(--pd-section);
+        }
+      }
+    }
+  }
+  @include sm {
+    font-size: 58%;
+  }
+  @include xs {
+    font-size: 62.5%;
+    body {
+      font-family: sr;
+      font-size: var(--fs-body1);
+      line-height: var(--lh-body1);
+      color: var(--white);
+      .container,
+      .container-fluid {
+        max-width: var(--max-width-container);
+        padding-left: var(--gap);
+        padding-right: var(--gap);
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      }
+    }
+  }
+}

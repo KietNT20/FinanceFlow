@@ -1,0 +1,110 @@
+.pricingpage {
+  .main {
+    margin-top: var(--height-header);
+  }
+  .pricing {
+    padding-top: 40px;
+    padding-bottom: 225px;
+    .textbox {
+      text-align: center;
+      margin-bottom: 40px;
+      .heading {
+        margin-bottom: 16px;
+      }
+      .desc {
+        margin: 0 auto;
+        max-width: 586px;
+      }
+    }
+    &__methods {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      &-item {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        .icon-wrap{
+          display: flex;
+        }
+        .title {
+        }
+      }
+    }
+    &__wrap {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--grid-gap);
+      &-item {
+        background-color: var(--blue-dark);
+        padding: 48px 30px 42px 32px;
+        border-radius: 40px;
+        .content {
+          margin-top: 16px;
+          margin-bottom: 40px;
+        }
+        .features {
+          .title {
+            @include styleText(sbo, var(--fs-label), var(--lh-label), var(--white), uppercase);
+            @include textLS(var(--ls-label), 700);
+            margin-bottom: 16px;
+          }
+          ul {
+            li {
+              line-height: 2rem;
+              position: relative;
+              padding-left: 16px;
+              &:not(:last-child) {
+                margin-bottom: 16px;
+              }
+              &::before {
+                content: "";
+                @include mid(false);
+                left: 0;
+                @include size(6px);
+                background-color: var(--blue);
+              }
+            }
+          }
+          .btnmain {
+            margin-top: 54px;
+            width: 100%;
+          }
+        }
+      }
+    }
+    /* RESPONSIVE */
+    @include sm {
+      &__methods {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 38px;
+      }
+      &__wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+    @include xs {
+      padding-top: 48px;
+      padding-bottom: 80px;
+      &__methods {
+        grid-template-columns: 1fr;
+      }
+      &__wrap {
+        margin-top: 48px;
+        gap: 16px;
+      }
+      @include landscape {
+        &__methods {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+    @include xxs {
+      .textbox {
+        text-align: initial;
+      }
+    }
+  }
+}
